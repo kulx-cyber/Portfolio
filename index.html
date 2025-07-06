@@ -1,0 +1,412 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vishal | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -1.25rem;
+            top: 0.75rem;
+            width: 1rem;
+            height: 1rem;
+            background-color: #60a5fa;
+            border-radius: 8888px;
+            border: 2px solid white;
+            z-index: 10;
+        }
+
+        .carousel-container {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+            gap: 0.5rem;
+        }
+
+        .carousel-dot {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 9999px;
+            background-color: #ccc;
+            cursor: pointer;
+        }
+
+        .carousel-dot.active {
+            background-color: #60a5fa;
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white scroll-smooth">
+    <!-- Sticky Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full bg-black bg-opacity-90 z-50 transition-transform duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-white">Portfolio</div>
+            <div class="space-x-6 text-white text-lg hidden md:flex">
+                <a href="#work" class="hover:text-blue-400 transition">Work</a>
+                <a href="#projects" class="hover:text-blue-400 transition">Projects</a>
+                <a href="#skills" class="hover:text-blue-400 transition">Skills</a>
+                <a href="#about" class="hover:text-blue-400 transition">About</a>
+                <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Scroll Show/Hide Script -->
+    <script>
+        let lastScrollTop = 0;
+        const navbar = document.getElementById("navbar");
+        window.addEventListener("scroll", function () {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop) {
+                navbar.style.transform = "translateY(-100%)";
+            } else {
+                navbar.style.transform = "translateY(0)";
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+    </script>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen w-full flex flex-col justify-center items-center overflow-hidden text-center">
+        <video autoplay muted loop class="absolute inset-0 w-full h-full object-cover">
+            <source
+                src="https://www.apple.com/105/media/us/mac/family/2023/dfb4d9c6-1a25-4f77-a07b-7d72b5a8d413/anim/hero/large.mp4"
+                type="video/mp4" />
+        </video>
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div class="relative z-10 max-w-3xl px-4">
+            <h1 class="text-6xl font-extrabold leading-tight mb-6">Hello, I'm <span class="text-blue-400">Vishal</span>
+            </h1>
+            <p class="text-xl mb-8">Engineer | Cybersecurity Enthusiast</p>
+            <a href="#work" class="text-white bg-blue-600 px-6 py-3 rounded-full hover:bg-blue-700 transition">View My
+                Work</a>
+        </div>
+    </section>
+
+    <!-- Work Experience with Roadmap Animation -->
+    <section id="work" class="py-24 bg-black">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-5xl font-bold text-left text-white mb-20">Work Experience</h2>
+            <div class="border-l-4 border-blue-400 pl-6 space-y-16 relative">
+                <div data-aos="fade-up" class="relative">
+                    <span class="absolute left-[-25px] top-1.5 w-4 h-4 bg-blue-400 rounded-full"></span>
+                    <h3 class="text-3xl font-semibold text-blue-400">Senior Software Engineer, Ruckus Networks CommScope
+                    </h3>
+                    <p class="text-gray-400">Apr 2022 – July 2024</p>
+                    <ul class="list-disc list-inside text-xl mt-4 text-gray-300">
+                        <li>Engineered Feature Flag infrastructure to run as an isolated process on Linux environment,
+                            enhancing system stability; this minimized feature-related failures, decreasing associated
+                            debugging time by 40%.</li>
+                        <li>Spearheaded developing and testing the PoE (Power over Ethernet) recovery mechanism using
+                            the I2C analyzer tool, enhancing system reliability and reducing recovery time by 30%.</li>
+                        <li>Conducted detailed data analysis to identify firmware vulnerabilities, enhancing security
+                            measures and improving system uptime by 25%.</li>
+                        <li>Integrated efficient interrupt handling for System LED and Mode Button LED functionalities,
+                            achieving seamless integration with hardware and surpassing performance benchmarks by 15% by
+                            rigorous testing.</li>
+                    </ul>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="200" class="relative">
+                    <span class="absolute left-[-25px] top-1.5 w-4 h-4 bg-blue-400 rounded-full"></span>
+                    <h3 class="text-3xl font-semibold text-blue-400">Software Engineer, Ruckus Networks CommScope</h3>
+                    <p class="text-gray-400">July 2019 – Mar 2022</p>
+                    <ul class="list-disc list-inside mt-4 text-xl text-gray-300">
+                        <li>Led the development of the auto-class feature for PoE in adherence to IEEE 802.3bt
+                            standards, resulting in 30% improvement in power allocation accuracy and system stability.
+                        </li>
+                        <li>Spearheaded the integration of protocol buffers (protobuf) across 25+ user interface
+                            command-lines, resulting in an improvement in overall system communication efficiency by
+                            30%.</li>
+                        <li>Diagnosed and resolved an average of 16 bugs weekly during critical bug-fix cycles,
+                            representing 75% of the team's total fixes, which enhanced system stability by reducing
+                            crash rates by 40%.</li>
+                        <li>Engineered a locking mechanism prototype for concurrent platform and hardware access,
+                            bolstering system security by mitigating race conditions and elevating data integrity by 25%
+                            during peak loads.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 bg-neutral-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-5xl font-bold text-left text-white mb-20">Projects</h2>
+            <div class="carousel-container group relative">
+                <div class="carousel-track" id="carouselTrack">
+                    <div class="flex w-full shrink-0">
+                        <div class="w-1/2 p-4">
+                            <div class="bg-white/10 backdrop-blur-lg rounded-xl p-6 relative">
+                                <h3 class="text-xl font-semibold text-blue-400 mb-2">Serverless Machine Learning for
+                                    Real-Time Fraud Detection in Financial Systems</h3>
+                                <p class="text-gray-300">Real-time fraud detection using AWS SageMaker and Lambda in a
+                                    scalable serverless setup.</p>
+                                <button class="text-sm text-blue-400 mt-4 underline"
+                                    onclick="showDetails('fraud')">Details</button>
+                            </div>
+                        </div>
+                        <div class="w-1/2 p-4">
+                            <div class="bg-white/10 backdrop-blur-lg rounded-xl p-6 relative">
+                                <h3 class="text-xl font-semibold text-blue-400 mb-2">Telstra Virtual Workshop </h3>
+                                <p class="text-gray-300">Simulated mitigation of Spring4Shell exploit using firewall
+                                    rules and vulnerability analysis.</p>
+                                <button class="text-sm text-blue-400 mt-4 underline"
+                                    onclick="showDetails('telstra')">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex w-full shrink-0">
+                        <div class="w-1/2 p-4">
+                            <div class="bg-white/10 backdrop-blur-lg rounded-xl p-6 relative">
+                                <h3 class="text-xl font-semibold text-blue-400 mb-2">Automated Vulnerability Scanner
+                                </h3>
+                                <p class="text-gray-300">Python-based tool detecting OWASP Top 10 vulnerabilities with
+                                    logging and machine learning.</p>
+                                <button class="text-sm text-blue-400 mt-4 underline"
+                                    onclick="showDetails('scanner')">Details</button>
+                            </div>
+                        </div>
+                        <div class="w-1/2 p-4">
+                            <div class="bg-white/10 backdrop-blur-lg rounded-xl p-6 relative">
+                                <h3 class="text-xl font-semibold text-blue-400 mb-2">Intelligent Intrusion Detection
+                                    System</h3>
+                                <p class="text-gray-300">Network-based IDS using machine learning to detect 98% of
+                                    threats with low false positives.</p>
+                                <button class="text-sm text-blue-400 mt-4 underline"
+                                    onclick="showDetails('ids')">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-center items-center gap-4 mt-6">
+                    <button id="prevBtn" class="text-2xl text-white hover:text-blue-400">&#10094;</button>
+                    <div class="carousel-nav" id="carouselDots"></div>
+                    <button id="nextBtn" class="text-2xl text-white hover:text-blue-400">&#10095;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Overlay -->
+        <div id="projectModal" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden items-center justify-center p-6">
+            <div class="bg-neutral-900 text-white max-w-xl w-full p-8 rounded-lg relative">
+                <button onclick="closeDetails()"
+                    class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">&times;</button>
+                <h3 id="modalTitle" class="text-3xl font-bold mb-4"></h3>
+                <p id="modalContent" class="text-gray-300"></p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const track = document.getElementById("carouselTrack");
+        const dotsContainer = document.getElementById("carouselDots");
+        const totalSlides = track.children.length;
+        let currentIndex = 0;
+        let interval;
+
+        const updateCarousel = () => {
+            const offset = currentIndex * -100;
+            track.style.transform = `translateX(${offset}%)`;
+            Array.from(dotsContainer.children).forEach((dot, index) => {
+                dot.classList.toggle("active", index === currentIndex);
+            });
+        };
+
+        const createDots = () => {
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement("span");
+                dot.classList.add("carousel-dot");
+                if (i === 0) dot.classList.add("active");
+                dot.addEventListener("click", () => {
+                    currentIndex = i;
+                    updateCarousel();
+                });
+                dotsContainer.appendChild(dot);
+            }
+        };
+
+        document.getElementById("nextBtn").addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateCarousel();
+        });
+
+        document.getElementById("prevBtn").addEventListener("click", () => {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        });
+
+        const startRotation = () => {
+            interval = setInterval(() => {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateCarousel();
+            }, 4000);
+        };
+
+        const stopRotation = () => clearInterval(interval);
+
+        document.querySelector(".carousel-container").addEventListener("mouseenter", stopRotation);
+        document.querySelector(".carousel-container").addEventListener("mouseleave", startRotation);
+
+        createDots();
+        updateCarousel();
+        startRotation();
+
+        // Modal logic
+        const modal = document.getElementById("projectModal");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalContent = document.getElementById("modalContent");
+
+        function showDetails(projectId) {
+            const projectDetails = {
+                fraud: {
+                    title: "Serverless ML Fraud Detection",
+                    content: "Built and deployed a real-time credit card fraud detection system using AWS SageMaker, Lambda, and API Gateway, delivering scalable, low-latency predictions in a serverless architecture.<br>Designed an XGBoost pipeline with SMOTE for class imbalance, integrated ethical decision metrics, and optimized deployment via S3 and Lambda Layers for modular, secure updates.<br><br><strong>Tech Stack:</strong> AWS SageMaker, Lambda, API Gateway, Python, XGBoost, SMOTE.<br><br><a href='https://github.com/kulx-cyber/CyberSecurity-Projects/tree/master' target='_blank' class='text-3xl text-blue-400 hover:underline'>View on GitHub</a>"
+                },
+                telstra: {
+                    title: "Telstra Virtual Workshop",
+                    content: "Identified and mitigated the Spring4Shell RCE vulnerability in a simulated environment by implementing targeted firewall rules to block malicious HTTP POST payloads, strengthening system security.<br><br><strong>Tech Stack:</strong> Linux, iptables, HTTP, OWASP"
+                },
+                scanner: {
+                    title: "Automated Vulnerability Scanner",
+                    content: "Developed an Automated Vulnerability Scanner using Python, leveraging the Random Forest algorithm to identify OWASP’s Top 10 vulnerabilities, such as XSS and SQL Injection, enhancing security assessments.<br>• Implemented mitigation steps for identified vulnerabilities and improved debugging efficiency by incorporating a logging mechanism for user input and vulnerability analysis.<br><br><strong>Tech Stack:</strong> Python, Scikit-learn, OWASP, Logging. <br><br><a href='https://github.com/kulx-cyber/CyberSecurity-Projects/tree/CyberSecurity-Project/VulnerabilityScanner                    git remote add origin https://github.com/USERNAME/REPO.git' target='_blank' class='text-3xl text-blue-400 hover:underline'>View on GitHub</a>"
+                },
+                ids: {
+                    title: "Intrusion Detection System",
+                    content: "Designed an intelligent intrusion detection system using Python, scrutinizing network traffic and forging algorithms; diminished false positives by 15% and detected 98% of attack patterns for network security.<br><br><strong>Tech Stack:</strong> Python, Scikit-learn, Pandas, Network Traffic Capture.<br><br><a href='https://github.com/kulx-cyber/CyberSecurity-Projects/tree/CyberSecurity-Project/IDS_ML' target='_blank' class='text-3xl text-blue-400 hover:underline'>View on GitHub</a>"
+                }
+            };
+            const project = projectDetails[projectId];
+            modalTitle.textContent = project.title;
+            modalContent.innerHTML = project.content;
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+        }
+
+        function closeDetails() {
+            modal.classList.remove("flex");
+            modal.classList.add("hidden");
+        }
+    </script>
+
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="py-24 bg-black">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-5xl font-bold text-left text-white mb-20">Certificates</h2>
+            <div class="bg-white/10 p-6 rounded-xl text-white" data-aos="flip-up">
+                <h3 class="text-xl font-semibold mb-2">CompTIA Security+</h3>
+                <p class="text-gray-300">Recognized as a Certified Security Engineer (COMP001022626110)</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-24 bg-neutral-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-5xl font-bold text-left text-white mb-20">Skills</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-10">
+                <div class="bg-white/10 rounded-xl p-6 shadow-lg hover:shadow-blue-400 transition duration-300"
+                    data-aos="fade-up">
+                    <h3 class="text-2xl font-semibold text-blue-400 mb-4 flex items-center"><i
+                            class="fas fa-code mr-3"></i>Languages</h3>
+                    <ul class="text-lg text-gray-300 space-y-1 list-disc list-inside">
+                        <li>C</li>
+                        <li>C++</li>
+                        <li>Python</li>
+                        <li>PowerShell</li>
+                        <li>Rust</li>
+                        <li>SQL</li>
+                        <li>Bash</li>
+                    </ul>
+                </div>
+                <div class="bg-white/10 rounded-xl p-6 shadow-lg hover:shadow-blue-400 transition duration-300"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-2xl font-semibold text-blue-400 mb-4 flex items-center"><i
+                            class="fas fa-tools mr-3"></i>Tools & Technologies</h3>
+                    <ul class="text-lg text-gray-300 space-y-1 list-disc list-inside">
+                        <li>Kali Linux</li>
+                        <li>BurpSuite</li>
+                        <li>Metasploit</li>
+                        <li>Ghidra</li>
+                        <li>AWS</li>
+                        <li>Nmap</li>
+                        <li>Wireshark</li>
+                        <li>GDB</li>
+                        <li>Git</li>
+                        <li>EnCase</li>
+                        <li>FTK</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-black">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center">
+            <img src="..\Images\IMG_8247.jpg"
+                alt="Vishal" class="rounded-2xl w-full md:w-1/2 shadow-xl mb-10 md:mb-0">
+            <div class="md:pl-10">
+                <h2 class="text-5xl font-bold text-white mb-4">About Me</h2>
+                <p class="text-2xl text-gray-400 mb-4">I'm Vishal Neelakanth Rao Kulkarni, a passionate developer and
+                    cybersecurity enthusiast pursuing a Master's in Cybersecurity at Iowa State University.</p>
+                <p class="text-2xl text-gray-400">I specialize in secure systems development, automation, and vulnerability
+                    analysis. With a strong foundation in software engineering and a keen interest in
+                    cybersecurity, I aim to create innovative solutions that enhance security and efficiency. In my free time, I enjoy exploring new technologies and staying updated with the latest trends in cybersecurity.</p>
+                <p class="text-2xl text-gray-400 mt-4">When I am not coding you will find me climbing the mountains, playing badminton, soccer, or exploring new places.</p>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="py-24 bg-neutral-900">
+        <div class="max-w-6xl mx-auto px-6 text-center bg-white/10 rounded-sm p-6 shadow-lg hover:shadow-blue-400 transition duration-300" data-aos="fade-up" data-aos-delay="100">
+            <h2 class="text-5xl font-bold text-white mb-10">Contact Me</h2>
+            <p class="text-gray-400 mb-6">Feel free to reach out or just to say hello!</p>
+            <a href="mailto:nkulkarni.vishal@gmail.com" target="_blank" class="text-3xl text-blue-400 hover:underline">Email |</a>
+            <a href="https://www.linkedin.com/in/vishal-n-kulkarni-ln/" target="_blank" class="text-3xl text-blue-400 hover:underline">LinkedIn |</a>
+            <a href="https://github.com/kulx-cyber/CyberSecurity-Projects/tree/CyberSecurity-Project" target="_blank" class="text-3xl text-blue-400 hover:underline">GitHub</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-neutral-950 py-10 text-center text-gray-500 text-sm">
+        &copy; 2025 Vishal N. Kulkarni. All rights reserved.
+    </footer>
+
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>
